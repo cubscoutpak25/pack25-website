@@ -99,14 +99,15 @@ h1, h2, h3, .logo { font-family: 'Montserrat', sans-serif; }
 .about-logo { float: right; width: 150px; margin: 0 0 1rem 1.5rem; mix-blend-mode: multiply; }
 .dens-top-logo { display: block; width: 130px; margin: 0 auto 1rem; mix-blend-mode: multiply; }
 
-/* Location Box */
+/* Location & Contact Box */
 .location-box { background: var(--light); padding: 1.5rem; border-radius: 6px; border-left: 4px solid var(--primary); }
 .meeting-time { font-size: 1.2rem !important; color: var(--patriotic-red) !important; margin-bottom: 0.5rem !important;}
 .meeting-address { font-size: 1.1rem !important; line-height: 1.6; }
+.contact-box { background: var(--light); padding: 1.5rem; border-radius: 6px; border-left: 4px solid var(--secondary); text-align: center;}
 
 /* Action/Map Cards */
 .map-card { padding: 0.5rem; border-top: 6px solid var(--primary); margin-bottom: 1.5rem;}
-.action-card { color: var(--white); text-align: center; border-radius: 8px;}
+.action-card { color: var(--white); text-align: center; border-radius: 8px; padding: 1.5rem;}
 .action-card h3 { color: var(--secondary); font-size: 1.6rem; }
 .action-card p { color: var(--white); opacity: 0.9; margin-bottom: 1.5rem;}
 
@@ -167,11 +168,11 @@ h1, h2, h3, .logo { font-family: 'Montserrat', sans-serif; }
 
 @media (max-width: 900px) {
     .grid-2-uneven { grid-template-columns: 1fr; }
-    .hero h1 { font-size: 3.5rem; }
+    .hero h1 { font-size: 3rem; }
 }
 @media (max-width: 768px) {
     .nav-links { display: none; }
-    .hero h1 { font-size: 2.8rem; }
+    .hero h1 { font-size: 2.5rem; }
     .about-logo { float: none; display: block; margin: 0 auto 1.5rem; }
     .cal-cell { min-height: 80px; padding: 0.2rem; }
     .cal-date-num { font-size: 0.9rem; }

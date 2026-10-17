@@ -1,7 +1,6 @@
 // Core Special Events
 const specialEvents = {
     "2026-09-08": "Pack Kickoff",
-    "2026-10-16": "Fall Campout Starts",
     "2026-10-17": "Fall Campout",
     "2026-10-18": "Fall Campout Ends",
     "2026-11-14": "Pack Food Drive",
