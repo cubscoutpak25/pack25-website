@@ -24,56 +24,415 @@
     <section class="section container">
         <div class="card title-card patriotic-card text-center mb-2">
             <h2><i class="fa-solid fa-award"></i> Famous Scouts in History</h2>
-            <p>Scouting builds leaders. Discover some of the incredible individuals who started their journey in a scout uniform and went on to change the world.</p>
+            <p>Scouting builds leaders. Discover 56 world leaders, astronauts, pioneers, and cultural icons who wore the Scout uniform and made history.</p>
+            
+            <div class="search-box-wrapper mt-2">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" id="famous-search" placeholder="Filter by name, rank, or achievement... (e.g. Astronaut, President, Eagle Scout)" class="famous-search-input">
+            </div>
         </div>
         
-        <div class="grid-3">
-            <div class="card feature-card">
+        <div class="grid-3" id="famous-scouts-grid">
+
+            <div class="card famous-card" data-search="neil armstrong eagle scout astronaut, aeronautical engineer, and the first person to walk on the moon (apollo 11).">
                 <div class="card-icon"><i class="fa-solid fa-rocket"></i></div>
-                <h3 style="margin-bottom: 0.2rem;">Neil Armstrong</h3>
-                <p class="grade" style="color: var(--patriotic-red);">Eagle Scout</p>
-                <p>Astronaut, aerospace engineer, and the first person to walk on the Moon.</p>
+                <h3>Neil Armstrong</h3>
+                <p class="scout-rank" style="color: var(--patriotic-red);"><i class="fa-solid fa-ribbon"></i> Eagle Scout</p>
+                <p class="scout-desc">Astronaut, aeronautical engineer, and the first person to walk on the Moon (Apollo 11).</p>
+                <a href="https://en.wikipedia.org/wiki/Neil_Armstrong" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
             </div>
-            
-            <div class="card feature-card">
-                <div class="card-icon"><i class="fa-solid fa-dove"></i></div>
-                <h3 style="margin-bottom: 0.2rem;">Martin Luther King Jr.</h3>
-                <p class="grade" style="color: var(--primary);">Boy Scout</p>
-                <p>Legendary civil rights leader, minister, and Nobel Peace Prize laureate.</p>
+            <div class="card famous-card" data-search="buzz aldrin tenderfoot scout apollo 11 astronaut, lunar module pilot, and the second person to walk on the moon.">
+                <div class="card-icon"><i class="fa-solid fa-user-astronaut"></i></div>
+                <h3>Buzz Aldrin</h3>
+                <p class="scout-rank" style="color: var(--primary);"><i class="fa-solid fa-ribbon"></i> Tenderfoot Scout</p>
+                <p class="scout-desc">Apollo 11 astronaut, lunar module pilot, and the second person to walk on the Moon.</p>
+                <a href="https://en.wikipedia.org/wiki/Buzz_Aldrin" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
             </div>
-            
-            <div class="card feature-card">
-                <div class="card-icon"><i class="fa-solid fa-film"></i></div>
-                <h3 style="margin-bottom: 0.2rem;">Steven Spielberg</h3>
-                <p class="grade" style="color: var(--patriotic-red);">Eagle Scout</p>
-                <p>One of the most commercially successful and influential film directors in history.</p>
+            <div class="card famous-card" data-search="jim lovell eagle scout commander of apollo 13; famed for leading the crew safely home following an explosion in space.">
+                <div class="card-icon"><i class="fa-solid fa-shuttle-space"></i></div>
+                <h3>Jim Lovell</h3>
+                <p class="scout-rank" style="color: var(--patriotic-red);"><i class="fa-solid fa-ribbon"></i> Eagle Scout</p>
+                <p class="scout-desc">Commander of Apollo 13; famed for leading the crew safely home following an explosion in space.</p>
+                <a href="https://en.wikipedia.org/wiki/Jim_Lovell" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
             </div>
-            
-            <div class="card feature-card">
+            <div class="card famous-card" data-search="charlie duke eagle scout apollo 16 lunar module pilot, capcom on apollo 11, and the youngest human to walk on the moon.">
+                <div class="card-icon"><i class="fa-solid fa-moon"></i></div>
+                <h3>Charlie Duke</h3>
+                <p class="scout-rank" style="color: var(--patriotic-red);"><i class="fa-solid fa-ribbon"></i> Eagle Scout</p>
+                <p class="scout-desc">Apollo 16 Lunar Module Pilot, CAPCOM on Apollo 11, and the youngest human to walk on the Moon.</p>
+                <a href="https://en.wikipedia.org/wiki/Charlie_Duke" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="john glenn boy scout mercury 7 astronaut, first american to orbit the earth, and longtime u.s. senator.">
+                <div class="card-icon"><i class="fa-solid fa-earth-americas"></i></div>
+                <h3>John Glenn</h3>
+                <p class="scout-rank" style="color: var(--primary);"><i class="fa-solid fa-ribbon"></i> Boy Scout</p>
+                <p class="scout-desc">Mercury 7 astronaut, first American to orbit the Earth, and longtime U.S. Senator.</p>
+                <a href="https://en.wikipedia.org/wiki/John_Glenn" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="gerald ford eagle scout 38th president of the united states; the first eagle scout to serve as president.">
                 <div class="card-icon"><i class="fa-solid fa-landmark"></i></div>
-                <h3 style="margin-bottom: 0.2rem;">John F. Kennedy</h3>
-                <p class="grade" style="color: var(--primary);">Star Scout</p>
-                <p>The 35th President of the United States and the first to have been a Scout.</p>
+                <h3>Gerald Ford</h3>
+                <p class="scout-rank" style="color: var(--patriotic-red);"><i class="fa-solid fa-ribbon"></i> Eagle Scout</p>
+                <p class="scout-desc">38th President of the United States; the first Eagle Scout to serve as President.</p>
+                <a href="https://en.wikipedia.org/wiki/Gerald_Ford" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
             </div>
-            
-            <div class="card feature-card">
+            <div class="card famous-card" data-search="john f. kennedy star scout 35th president of the united states, pulitzer prize winner, and decorated naval hero.">
+                <div class="card-icon"><i class="fa-solid fa-monument"></i></div>
+                <h3>John F. Kennedy</h3>
+                <p class="scout-rank" style="color: var(--primary);"><i class="fa-solid fa-ribbon"></i> Star Scout</p>
+                <p class="scout-desc">35th President of the United States, Pulitzer Prize winner, and decorated naval hero.</p>
+                <a href="https://en.wikipedia.org/wiki/John_F._Kennedy" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="jimmy carter boy scout & scoutmaster 39th president of the united states, nobel peace prize laureate, and global humanitarian.">
+                <div class="card-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+                <h3>Jimmy Carter</h3>
+                <p class="scout-rank" style="color: var(--primary);"><i class="fa-solid fa-ribbon"></i> Boy Scout & Scoutmaster</p>
+                <p class="scout-desc">39th President of the United States, Nobel Peace Prize laureate, and global humanitarian.</p>
+                <a href="https://en.wikipedia.org/wiki/Jimmy_Carter" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="george w. bush cub scout 43rd president of the united states and 46th governor of texas.">
+                <div class="card-icon"><i class="fa-solid fa-flag-usa"></i></div>
+                <h3>George W. Bush</h3>
+                <p class="scout-rank" style="color: var(--primary);"><i class="fa-solid fa-ribbon"></i> Cub Scout</p>
+                <p class="scout-desc">43rd President of the United States and 46th Governor of Texas.</p>
+                <a href="https://en.wikipedia.org/wiki/George_W._Bush" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="bill clinton cub scout 42nd president of the united states and governor of arkansas.">
+                <div class="card-icon"><i class="fa-solid fa-building-columns"></i></div>
+                <h3>Bill Clinton</h3>
+                <p class="scout-rank" style="color: var(--primary);"><i class="fa-solid fa-ribbon"></i> Cub Scout</p>
+                <p class="scout-desc">42nd President of the United States and Governor of Arkansas.</p>
+                <a href="https://en.wikipedia.org/wiki/Bill_Clinton" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="martin luther king jr. boy scout legendary civil rights leader, minister, orator, and nobel peace prize laureate.">
+                <div class="card-icon"><i class="fa-solid fa-dove"></i></div>
+                <h3>Martin Luther King Jr.</h3>
+                <p class="scout-rank" style="color: var(--primary);"><i class="fa-solid fa-ribbon"></i> Boy Scout</p>
+                <p class="scout-desc">Legendary civil rights leader, minister, orator, and Nobel Peace Prize laureate.</p>
+                <a href="https://en.wikipedia.org/wiki/Martin_Luther_King_Jr." target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="steven spielberg eagle scout one of the most acclaimed and commercially successful film directors and producers in cinema history.">
+                <div class="card-icon"><i class="fa-solid fa-film"></i></div>
+                <h3>Steven Spielberg</h3>
+                <p class="scout-rank" style="color: var(--patriotic-red);"><i class="fa-solid fa-ribbon"></i> Eagle Scout</p>
+                <p class="scout-desc">One of the most acclaimed and commercially successful film directors and producers in cinema history.</p>
+                <a href="https://en.wikipedia.org/wiki/Steven_Spielberg" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="hank aaron boy scout major league baseball hall of famer, 755 career home runs, and civil rights advocate.">
                 <div class="card-icon"><i class="fa-solid fa-baseball-bat-ball"></i></div>
-                <h3 style="margin-bottom: 0.2rem;">Hank Aaron</h3>
-                <p class="grade" style="color: var(--primary);">Boy Scout</p>
-                <p>Major League Baseball Hall of Famer and prominent civil rights advocate.</p>
+                <h3>Hank Aaron</h3>
+                <p class="scout-rank" style="color: var(--primary);"><i class="fa-solid fa-ribbon"></i> Boy Scout</p>
+                <p class="scout-desc">Major League Baseball Hall of Famer, 755 career home runs, and civil rights advocate.</p>
+                <a href="https://en.wikipedia.org/wiki/Hank_Aaron" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
             </div>
-            
-            <div class="card feature-card">
+            <div class="card famous-card" data-search="willie mays boy scout hall of fame baseball center fielder, 24-time mlb all-star, known as 'the say hey kid'.">
+                <div class="card-icon"><i class="fa-solid fa-baseball"></i></div>
+                <h3>Willie Mays</h3>
+                <p class="scout-rank" style="color: var(--primary);"><i class="fa-solid fa-ribbon"></i> Boy Scout</p>
+                <p class="scout-desc">Hall of Fame baseball center fielder, 24-time MLB All-Star, known as 'The Say Hey Kid'.</p>
+                <a href="https://en.wikipedia.org/wiki/Willie_Mays" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="nolan ryan boy scout mlb hall of fame pitcher holding all-time records for 5,714 strikeouts and 7 no-hitters.">
+                <div class="card-icon"><i class="fa-solid fa-bolt"></i></div>
+                <h3>Nolan Ryan</h3>
+                <p class="scout-rank" style="color: var(--primary);"><i class="fa-solid fa-ribbon"></i> Boy Scout</p>
+                <p class="scout-desc">MLB Hall of Fame pitcher holding all-time records for 5,714 strikeouts and 7 no-hitters.</p>
+                <a href="https://en.wikipedia.org/wiki/Nolan_Ryan" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="michael jordan cub scout 6-time nba champion, 5-time mvp, hall of famer, and global basketball icon.">
+                <div class="card-icon"><i class="fa-solid fa-basketball"></i></div>
+                <h3>Michael Jordan</h3>
+                <p class="scout-rank" style="color: var(--primary);"><i class="fa-solid fa-ribbon"></i> Cub Scout</p>
+                <p class="scout-desc">6-time NBA Champion, 5-time MVP, Hall of Famer, and global basketball icon.</p>
+                <a href="https://en.wikipedia.org/wiki/Michael_Jordan" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="bill gates life scout co-founder of microsoft, computer pioneer, and founder of the gates foundation.">
                 <div class="card-icon"><i class="fa-solid fa-laptop-code"></i></div>
-                <h3 style="margin-bottom: 0.2rem;">Bill Gates</h3>
-                <p class="grade" style="color: var(--primary);">Life Scout</p>
-                <p>Co-founder of Microsoft, software developer, and leading global philanthropist.</p>
+                <h3>Bill Gates</h3>
+                <p class="scout-rank" style="color: var(--primary);"><i class="fa-solid fa-ribbon"></i> Life Scout</p>
+                <p class="scout-desc">Co-founder of Microsoft, computer pioneer, and founder of the Gates Foundation.</p>
+                <a href="https://en.wikipedia.org/wiki/Bill_Gates" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="sam walton eagle scout visionary retail entrepreneur and founder of walmart and sam's club.">
+                <div class="card-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+                <h3>Sam Walton</h3>
+                <p class="scout-rank" style="color: var(--patriotic-red);"><i class="fa-solid fa-ribbon"></i> Eagle Scout</p>
+                <p class="scout-desc">Visionary retail entrepreneur and founder of Walmart and Sam's Club.</p>
+                <a href="https://en.wikipedia.org/wiki/Sam_Walton" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="michael bloomberg eagle scout founder of bloomberg lp, philanthropist, author, and three-term mayor of new york city.">
+                <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
+                <h3>Michael Bloomberg</h3>
+                <p class="scout-rank" style="color: var(--patriotic-red);"><i class="fa-solid fa-ribbon"></i> Eagle Scout</p>
+                <p class="scout-desc">Founder of Bloomberg LP, philanthropist, author, and three-term Mayor of New York City.</p>
+                <a href="https://en.wikipedia.org/wiki/Michael_Bloomberg" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="walter cronkite eagle scout legendary cbs news anchor and journalist, widely cited as 'the most trusted man in america'.">
+                <div class="card-icon"><i class="fa-solid fa-bullhorn"></i></div>
+                <h3>Walter Cronkite</h3>
+                <p class="scout-rank" style="color: var(--patriotic-red);"><i class="fa-solid fa-ribbon"></i> Eagle Scout</p>
+                <p class="scout-desc">Legendary CBS News anchor and journalist, widely cited as 'the most trusted man in America'.</p>
+                <a href="https://en.wikipedia.org/wiki/Walter_Cronkite" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="harrison ford life scout iconic hollywood actor famous for portraying han solo, indiana jones, and jack ryan.">
+                <div class="card-icon"><i class="fa-solid fa-clapperboard"></i></div>
+                <h3>Harrison Ford</h3>
+                <p class="scout-rank" style="color: var(--primary);"><i class="fa-solid fa-ribbon"></i> Life Scout</p>
+                <p class="scout-desc">Iconic Hollywood actor famous for portraying Han Solo, Indiana Jones, and Jack Ryan.</p>
+                <a href="https://en.wikipedia.org/wiki/Harrison_Ford" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="jimmy stewart star scout academy award-winning actor, beloved cultural figure, and decorated wwii air force brigadier general.">
+                <div class="card-icon"><i class="fa-solid fa-plane-departure"></i></div>
+                <h3>Jimmy Stewart</h3>
+                <p class="scout-rank" style="color: var(--primary);"><i class="fa-solid fa-ribbon"></i> Star Scout</p>
+                <p class="scout-desc">Academy Award-winning actor, beloved cultural figure, and decorated WWII Air Force Brigadier General.</p>
+                <a href="https://en.wikipedia.org/wiki/James_Stewart" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="arthur eldred eagle scout earned the rank in 1912, becoming the very first eagle scout in the history of the boy scouts of america.">
+                <div class="card-icon"><i class="fa-solid fa-medal"></i></div>
+                <h3>Arthur Eldred</h3>
+                <p class="scout-rank" style="color: var(--patriotic-red);"><i class="fa-solid fa-ribbon"></i> Eagle Scout</p>
+                <p class="scout-desc">Earned the rank in 1912, becoming the very first Eagle Scout in the history of the Boy Scouts of America.</p>
+                <a href="https://en.wikipedia.org/wiki/Arthur_Rose_Eldred" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="robert gates eagle scout u.s. secretary of defense under two presidents, cia director, and national president of the bsa.">
+                <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <h3>Robert Gates</h3>
+                <p class="scout-rank" style="color: var(--patriotic-red);"><i class="fa-solid fa-ribbon"></i> Eagle Scout</p>
+                <p class="scout-desc">U.S. Secretary of Defense under two presidents, CIA Director, and National President of the BSA.</p>
+                <a href="https://en.wikipedia.org/wiki/Robert_Gates" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="donald rumsfeld eagle scout twice served as u.s. secretary of defense, white house chief of staff, and u.s. congressman.">
+                <div class="card-icon"><i class="fa-solid fa-landmark-flag"></i></div>
+                <h3>Donald Rumsfeld</h3>
+                <p class="scout-rank" style="color: var(--patriotic-red);"><i class="fa-solid fa-ribbon"></i> Eagle Scout</p>
+                <p class="scout-desc">Twice served as U.S. Secretary of Defense, White House Chief of Staff, and U.S. Congressman.</p>
+                <a href="https://en.wikipedia.org/wiki/Donald_Rumsfeld" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="rex tillerson eagle scout former u.s. secretary of state, ceo of exxonmobil, and former president of the bsa.">
+                <div class="card-icon"><i class="fa-solid fa-briefcase"></i></div>
+                <h3>Rex Tillerson</h3>
+                <p class="scout-rank" style="color: var(--patriotic-red);"><i class="fa-solid fa-ribbon"></i> Eagle Scout</p>
+                <p class="scout-desc">Former U.S. Secretary of State, CEO of ExxonMobil, and former President of the BSA.</p>
+                <a href="https://en.wikipedia.org/wiki/Rex_Tillerson" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="stephen breyer eagle scout jurist, legal scholar, and associate justice of the supreme court of the united states.">
+                <div class="card-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                <h3>Stephen Breyer</h3>
+                <p class="scout-rank" style="color: var(--patriotic-red);"><i class="fa-solid fa-ribbon"></i> Eagle Scout</p>
+                <p class="scout-desc">Jurist, legal scholar, and Associate Justice of the Supreme Court of the United States.</p>
+                <a href="https://en.wikipedia.org/wiki/Stephen_Breyer" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="ross perot eagle scout billionaire tech founder (eds), philanthropist, and two-time independent u.s. presidential candidate.">
+                <div class="card-icon"><i class="fa-solid fa-money-bill-trend-up"></i></div>
+                <h3>Ross Perot</h3>
+                <p class="scout-rank" style="color: var(--patriotic-red);"><i class="fa-solid fa-ribbon"></i> Eagle Scout</p>
+                <p class="scout-desc">Billionaire tech founder (EDS), philanthropist, and two-time independent U.S. Presidential candidate.</p>
+                <a href="https://en.wikipedia.org/wiki/Ross_Perot" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="mike rowe eagle scout host of discovery channel's dirty jobs, voice actor, and advocate for trade vocations.">
+                <div class="card-icon"><i class="fa-solid fa-helmet-safety"></i></div>
+                <h3>Mike Rowe</h3>
+                <p class="scout-rank" style="color: var(--patriotic-red);"><i class="fa-solid fa-ribbon"></i> Eagle Scout</p>
+                <p class="scout-desc">Host of Discovery Channel's Dirty Jobs, voice actor, and advocate for trade vocations.</p>
+                <a href="https://en.wikipedia.org/wiki/Mike_Rowe" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="david lynch eagle scout acclaimed, visionary director of blue velvet, mulholland drive, and co-creator of twin peaks.">
+                <div class="card-icon"><i class="fa-solid fa-video"></i></div>
+                <h3>David Lynch</h3>
+                <p class="scout-rank" style="color: var(--patriotic-red);"><i class="fa-solid fa-ribbon"></i> Eagle Scout</p>
+                <p class="scout-desc">Acclaimed, visionary director of Blue Velvet, Mulholland Drive, and co-creator of Twin Peaks.</p>
+                <a href="https://en.wikipedia.org/wiki/David_Lynch" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="j.w. marriott jr. eagle scout executive chairman and former ceo who transformed marriott international into a global hospitality leader.">
+                <div class="card-icon"><i class="fa-solid fa-hotel"></i></div>
+                <h3>J.W. Marriott Jr.</h3>
+                <p class="scout-rank" style="color: var(--patriotic-red);"><i class="fa-solid fa-ribbon"></i> Eagle Scout</p>
+                <p class="scout-desc">Executive Chairman and former CEO who transformed Marriott International into a global hospitality leader.</p>
+                <a href="https://en.wikipedia.org/wiki/Bill_Marriott" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="clive cussler eagle scout adventure novelist who wrote more than 80 books and founded the national underwater and marine agency.">
+                <div class="card-icon"><i class="fa-solid fa-book"></i></div>
+                <h3>Clive Cussler</h3>
+                <p class="scout-rank" style="color: var(--patriotic-red);"><i class="fa-solid fa-ribbon"></i> Eagle Scout</p>
+                <p class="scout-desc">Adventure novelist who wrote more than 80 books and founded the National Underwater and Marine Agency.</p>
+                <a href="https://en.wikipedia.org/wiki/Clive_Cussler" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="jon heder eagle scout actor and filmmaker best known for his breakthrough comedic performance in napoleon dynamite.">
+                <div class="card-icon"><i class="fa-solid fa-glasses"></i></div>
+                <h3>Jon Heder</h3>
+                <p class="scout-rank" style="color: var(--patriotic-red);"><i class="fa-solid fa-ribbon"></i> Eagle Scout</p>
+                <p class="scout-desc">Actor and filmmaker best known for his breakthrough comedic performance in Napoleon Dynamite.</p>
+                <a href="https://en.wikipedia.org/wiki/Jon_Heder" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="ellison onizuka eagle scout first asian-american in space; hero and mission specialist who flew on sts-51-c and challenger.">
+                <div class="card-icon"><i class="fa-solid fa-star"></i></div>
+                <h3>Ellison Onizuka</h3>
+                <p class="scout-rank" style="color: var(--patriotic-red);"><i class="fa-solid fa-ribbon"></i> Eagle Scout</p>
+                <p class="scout-desc">First Asian-American in space; hero and mission specialist who flew on STS-51-C and Challenger.</p>
+                <a href="https://en.wikipedia.org/wiki/Ellison_Onizuka" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="william c. mccool eagle scout commander in the u.s. navy and the heroic pilot of space shuttle columbia (sts-107).">
+                <div class="card-icon"><i class="fa-solid fa-jet-fighter"></i></div>
+                <h3>William C. McCool</h3>
+                <p class="scout-rank" style="color: var(--patriotic-red);"><i class="fa-solid fa-ribbon"></i> Eagle Scout</p>
+                <p class="scout-desc">Commander in the U.S. Navy and the heroic pilot of Space Shuttle Columbia (STS-107).</p>
+                <a href="https://en.wikipedia.org/wiki/William_C._McCool" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="richard truly eagle scout nasa astronaut, naval vice admiral, pilot of columbia sts-2, and 8th administrator of nasa.">
+                <div class="card-icon"><i class="fa-solid fa-compass"></i></div>
+                <h3>Richard Truly</h3>
+                <p class="scout-rank" style="color: var(--patriotic-red);"><i class="fa-solid fa-ribbon"></i> Eagle Scout</p>
+                <p class="scout-desc">NASA astronaut, naval vice admiral, pilot of Columbia STS-2, and 8th Administrator of NASA.</p>
+                <a href="https://en.wikipedia.org/wiki/Richard_H._Truly" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="steve fossett eagle scout adventurer and record-setter; first person to fly solo nonstop around the world in a hot air balloon.">
+                <div class="card-icon"><i class="fa-solid fa-wind"></i></div>
+                <h3>Steve Fossett</h3>
+                <p class="scout-rank" style="color: var(--patriotic-red);"><i class="fa-solid fa-ribbon"></i> Eagle Scout</p>
+                <p class="scout-desc">Adventurer and record-setter; first person to fly solo nonstop around the world in a hot air balloon.</p>
+                <a href="https://en.wikipedia.org/wiki/Steve_Fossett" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="paul siple eagle scout antarctic explorer who accompanied admiral byrd on six expeditions and coined the term 'wind chill'.">
+                <div class="card-icon"><i class="fa-solid fa-snowflake"></i></div>
+                <h3>Paul Siple</h3>
+                <p class="scout-rank" style="color: var(--patriotic-red);"><i class="fa-solid fa-ribbon"></i> Eagle Scout</p>
+                <p class="scout-desc">Antarctic explorer who accompanied Admiral Byrd on six expeditions and coined the term 'wind chill'.</p>
+                <a href="https://en.wikipedia.org/wiki/Paul_Siple" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="charles lindbergh boy scout aviation pioneer who completed the historic first solo nonstop transatlantic flight in 1927.">
+                <div class="card-icon"><i class="fa-solid fa-plane"></i></div>
+                <h3>Charles Lindbergh</h3>
+                <p class="scout-rank" style="color: var(--primary);"><i class="fa-solid fa-ribbon"></i> Boy Scout</p>
+                <p class="scout-desc">Aviation pioneer who completed the historic first solo nonstop transatlantic flight in 1927.</p>
+                <a href="https://en.wikipedia.org/wiki/Charles_Lindbergh" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="e.o. wilson eagle scout renowned harvard biologist, world's foremost ant expert, and two-time winner of the pulitzer prize.">
+                <div class="card-icon"><i class="fa-solid fa-bug"></i></div>
+                <h3>E.O. Wilson</h3>
+                <p class="scout-rank" style="color: var(--patriotic-red);"><i class="fa-solid fa-ribbon"></i> Eagle Scout</p>
+                <p class="scout-desc">Renowned Harvard biologist, world's foremost ant expert, and two-time winner of the Pulitzer Prize.</p>
+                <a href="https://en.wikipedia.org/wiki/E._O._Wilson" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="philo farnsworth boy scout prolific american inventor who developed the first fully functional, all-electronic television system.">
+                <div class="card-icon"><i class="fa-solid fa-tv"></i></div>
+                <h3>Philo Farnsworth</h3>
+                <p class="scout-rank" style="color: var(--primary);"><i class="fa-solid fa-ribbon"></i> Boy Scout</p>
+                <p class="scout-desc">Prolific American inventor who developed the first fully functional, all-electronic television system.</p>
+                <a href="https://en.wikipedia.org/wiki/Philo_Farnsworth" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="john t. chambers eagle scout technology executive who served as executive chairman and ceo of cisco systems.">
+                <div class="card-icon"><i class="fa-solid fa-network-wired"></i></div>
+                <h3>John T. Chambers</h3>
+                <p class="scout-rank" style="color: var(--patriotic-red);"><i class="fa-solid fa-ribbon"></i> Eagle Scout</p>
+                <p class="scout-desc">Technology executive who served as Executive Chairman and CEO of Cisco Systems.</p>
+                <a href="https://en.wikipedia.org/wiki/John_T._Chambers" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="william westmoreland eagle scout four-star general who commanded u.s. forces in the vietnam war and served as army chief of staff.">
+                <div class="card-icon"><i class="fa-solid fa-shield"></i></div>
+                <h3>William Westmoreland</h3>
+                <p class="scout-rank" style="color: var(--patriotic-red);"><i class="fa-solid fa-ribbon"></i> Eagle Scout</p>
+                <p class="scout-desc">Four-star General who commanded U.S. forces in the Vietnam War and served as Army Chief of Staff.</p>
+                <a href="https://en.wikipedia.org/wiki/William_Westmoreland" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="thomas pickering eagle scout career diplomat holding the rank of career ambassador; served as u.s. ambassador to the united nations.">
+                <div class="card-icon"><i class="fa-solid fa-handshake"></i></div>
+                <h3>Thomas Pickering</h3>
+                <p class="scout-rank" style="color: var(--patriotic-red);"><i class="fa-solid fa-ribbon"></i> Eagle Scout</p>
+                <p class="scout-desc">Career diplomat holding the rank of Career Ambassador; served as U.S. Ambassador to the United Nations.</p>
+                <a href="https://en.wikipedia.org/wiki/Thomas_R._Pickering" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="michael dukakis eagle scout longest-serving governor of massachusetts and the democratic nominee for president in 1988.">
+                <div class="card-icon"><i class="fa-solid fa-users"></i></div>
+                <h3>Michael Dukakis</h3>
+                <p class="scout-rank" style="color: var(--patriotic-red);"><i class="fa-solid fa-ribbon"></i> Eagle Scout</p>
+                <p class="scout-desc">Longest-serving Governor of Massachusetts and the Democratic nominee for President in 1988.</p>
+                <a href="https://en.wikipedia.org/wiki/Michael_Dukakis" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="rick perry eagle scout longest-serving governor of texas (2000–2015) and 14th u.s. secretary of energy.">
+                <div class="card-icon"><i class="fa-solid fa-oil-well"></i></div>
+                <h3>Rick Perry</h3>
+                <p class="scout-rank" style="color: var(--patriotic-red);"><i class="fa-solid fa-ribbon"></i> Eagle Scout</p>
+                <p class="scout-desc">Longest-serving Governor of Texas (2000–2015) and 14th U.S. Secretary of Energy.</p>
+                <a href="https://en.wikipedia.org/wiki/Rick_Perry" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="lamar alexander eagle scout u.s. senator, governor of tennessee, and u.s. secretary of education under president bush.">
+                <div class="card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <h3>Lamar Alexander</h3>
+                <p class="scout-rank" style="color: var(--patriotic-red);"><i class="fa-solid fa-ribbon"></i> Eagle Scout</p>
+                <p class="scout-desc">U.S. Senator, Governor of Tennessee, and U.S. Secretary of Education under President Bush.</p>
+                <a href="https://en.wikipedia.org/wiki/Lamar_Alexander" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="richard lugar eagle scout distinguished u.s. senator from indiana who led international nuclear non-proliferation efforts.">
+                <div class="card-icon"><i class="fa-solid fa-globe"></i></div>
+                <h3>Richard Lugar</h3>
+                <p class="scout-rank" style="color: var(--patriotic-red);"><i class="fa-solid fa-ribbon"></i> Eagle Scout</p>
+                <p class="scout-desc">Distinguished U.S. Senator from Indiana who led international nuclear non-proliferation efforts.</p>
+                <a href="https://en.wikipedia.org/wiki/Richard_Lugar" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="stephen bechtel jr. eagle scout billionaire civil engineer and longtime ceo of the multinational bechtel construction corporation.">
+                <div class="card-icon"><i class="fa-solid fa-trowel-bricks"></i></div>
+                <h3>Stephen Bechtel Jr.</h3>
+                <p class="scout-rank" style="color: var(--patriotic-red);"><i class="fa-solid fa-ribbon"></i> Eagle Scout</p>
+                <p class="scout-desc">Billionaire civil engineer and longtime CEO of the multinational Bechtel construction corporation.</p>
+                <a href="https://en.wikipedia.org/wiki/Stephen_Bechtel_Jr." target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="robert baden-powell founder of scouting british army officer and writer whose 1908 book scouting for boys inspired the worldwide scout movement.">
+                <div class="card-icon"><i class="fa-solid fa-compass-drafting"></i></div>
+                <h3>Robert Baden-Powell</h3>
+                <p class="scout-rank" style="color: var(--primary);"><i class="fa-solid fa-ribbon"></i> Founder of Scouting</p>
+                <p class="scout-desc">British Army officer and writer whose 1908 book Scouting for Boys inspired the worldwide Scout movement.</p>
+                <a href="https://en.wikipedia.org/wiki/Robert_Baden-Powell,_1st_Baron_Baden-Powell" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="ernest thompson seton first chief scout of bsa naturalist, artist, author, and co-founder of the boy scouts of america.">
+                <div class="card-icon"><i class="fa-solid fa-tree"></i></div>
+                <h3>Ernest Thompson Seton</h3>
+                <p class="scout-rank" style="color: var(--primary);"><i class="fa-solid fa-ribbon"></i> First Chief Scout of BSA</p>
+                <p class="scout-desc">Naturalist, artist, author, and co-founder of the Boy Scouts of America.</p>
+                <a href="https://en.wikipedia.org/wiki/Ernest_Thompson_Seton" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="daniel carter beard first national commissioner illustrator and author who pioneered youth scouting programs in america.">
+                <div class="card-icon"><i class="fa-solid fa-campground"></i></div>
+                <h3>Daniel Carter Beard</h3>
+                <p class="scout-rank" style="color: var(--primary);"><i class="fa-solid fa-ribbon"></i> First National Commissioner</p>
+                <p class="scout-desc">Illustrator and author who pioneered youth scouting programs in America.</p>
+                <a href="https://en.wikipedia.org/wiki/Daniel_Carter_Beard" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="bill bradley eagle scout hall of fame nba champion with the ny knicks, rhodes scholar, and three-term u.s. senator.">
+                <div class="card-icon"><i class="fa-solid fa-award"></i></div>
+                <h3>Bill Bradley</h3>
+                <p class="scout-rank" style="color: var(--patriotic-red);"><i class="fa-solid fa-ribbon"></i> Eagle Scout</p>
+                <p class="scout-desc">Hall of Fame NBA champion with the NY Knicks, Rhodes Scholar, and three-term U.S. Senator.</p>
+                <a href="https://en.wikipedia.org/wiki/Bill_Bradley" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="james brady eagle scout white house press secretary under president reagan; prominent gun violence prevention advocate.">
+                <div class="card-icon"><i class="fa-solid fa-newspaper"></i></div>
+                <h3>James Brady</h3>
+                <p class="scout-rank" style="color: var(--patriotic-red);"><i class="fa-solid fa-ribbon"></i> Eagle Scout</p>
+                <p class="scout-desc">White House Press Secretary under President Reagan; prominent gun violence prevention advocate.</p>
+                <a href="https://en.wikipedia.org/wiki/James_Brady" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="william h. webster eagle scout distinguished lawyer and jurist; the only person to serve as director of both the fbi and cia.">
+                <div class="card-icon"><i class="fa-solid fa-building-shield"></i></div>
+                <h3>William H. Webster</h3>
+                <p class="scout-rank" style="color: var(--patriotic-red);"><i class="fa-solid fa-ribbon"></i> Eagle Scout</p>
+                <p class="scout-desc">Distinguished lawyer and jurist; the only person to serve as Director of both the FBI and CIA.</p>
+                <a href="https://en.wikipedia.org/wiki/William_H._Webster" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
+            </div>
+            <div class="card famous-card" data-search="charles m. schulz boy scout beloved cartoonist and creator of the peanuts comic strip featuring charlie brown and snoopy.">
+                <div class="card-icon"><i class="fa-solid fa-pen-nib"></i></div>
+                <h3>Charles M. Schulz</h3>
+                <p class="scout-rank" style="color: var(--primary);"><i class="fa-solid fa-ribbon"></i> Boy Scout</p>
+                <p class="scout-desc">Beloved cartoonist and creator of the Peanuts comic strip featuring Charlie Brown and Snoopy.</p>
+                <a href="https://en.wikipedia.org/wiki/Charles_M._Schulz" target="_blank" class="wiki-btn"><i class="fa-brands fa-wikipedia-w"></i> Wikipedia Bio &rarr;</a>
             </div>
         </div>
     </section>
 
     <footer class="footer patriotic-bg mt-4">
-        <p>&copy; 2026 Cub Scout Pack 25 | Archdale & Trinity, NC</p>
+        <p>&copy; 2026 Cub Scout Pack 25 | Archdale & Trinity, NC | Akela District | Old North State Council</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
