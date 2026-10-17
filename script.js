@@ -15,7 +15,8 @@ const specialEvents = {
     "2027-05-15": "Rank Crossover"
 };
 
-let currentDate = new Date(2026, 8, 1); // Start at September 2026
+const actualToday = new Date();
+let currentViewDate = new Date(actualToday.getFullYear(), actualToday.getMonth(), 1); 
 
 function renderCalendar(date) {
     const year = date.getFullYear();
@@ -41,7 +42,11 @@ function renderCalendar(date) {
         const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
         const currentDayOfWeek = new Date(year, month, day).getDay();
         
-        let cellHtml = `<div class="cal-cell">
+        // Highlight actual today
+        const isToday = (year === actualToday.getFullYear() && month === actualToday.getMonth() && day === actualToday.getDate());
+        const cellClasses = isToday ? "cal-cell today" : "cal-cell";
+        
+        let cellHtml = `<div class="${cellClasses}">
             <div class="cal-date-num">${day}</div>`;
             
         // Check for special events first
@@ -74,16 +79,16 @@ document.addEventListener("DOMContentLoaded", () => {
     
     if(prevBtn && nextBtn) {
         prevBtn.addEventListener('click', () => {
-            currentDate.setMonth(currentDate.getMonth() - 1);
-            renderCalendar(currentDate);
+            currentViewDate.setMonth(currentViewDate.getMonth() - 1);
+            renderCalendar(currentViewDate);
         });
         
         nextBtn.addEventListener('click', () => {
-            currentDate.setMonth(currentDate.getMonth() + 1);
-            renderCalendar(currentDate);
+            currentViewDate.setMonth(currentViewDate.getMonth() + 1);
+            renderCalendar(currentViewDate);
         });
         
         // Initial Render
-        renderCalendar(currentDate);
+        renderCalendar(currentViewDate);
     }
 });
