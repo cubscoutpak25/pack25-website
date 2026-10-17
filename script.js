@@ -51,7 +51,7 @@ function renderCalendar(date) {
         } 
         // If it's a Tuesday and NOT a special event day, mark it as a standard meeting
         else if (currentDayOfWeek === 2) {
-            cellHtml += `<div class="event-pill event-meeting">Scout Mtg 6:30p</div>`;
+            cellHtml += `<div class="event-pill event-meeting">Scout Mtg 6:00p</div>`;
         }
         
         cellHtml += `</div>`;
