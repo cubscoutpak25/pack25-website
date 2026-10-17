@@ -1,4 +1,5 @@
-const events = {
+// Core Special Events
+const specialEvents = {
     "2026-09-08": "Pack Kickoff",
     "2026-10-16": "Fall Campout Starts",
     "2026-10-17": "Fall Campout",
@@ -15,59 +16,75 @@ const events = {
     "2027-05-15": "Rank Crossover"
 };
 
-const monthsToRender = [
-    { year: 2026, month: 8, name: "September 2026", days: 30, startDay: 2 }, // Sept 1, 2026 is Tuesday (0=Sun, 1=Mon, 2=Tue)
-    { year: 2026, month: 9, name: "October 2026", days: 31, startDay: 4 }, // Oct 1, 2026 is Thursday
-    { year: 2026, month: 10, name: "November 2026", days: 30, startDay: 0 }, // Nov 1 is Sunday
-    { year: 2026, month: 11, name: "December 2026", days: 31, startDay: 2 }, // Dec 1 is Tuesday
-    { year: 2027, month: 0, name: "January 2027", days: 31, startDay: 5 }, // Jan 1 is Friday
-    { year: 2027, month: 1, name: "February 2027", days: 28, startDay: 1 }, // Feb 1 is Monday
-    { year: 2027, month: 2, name: "March 2027", days: 31, startDay: 1 }, // Mar 1 is Monday
-    { year: 2027, month: 3, name: "April 2027", days: 30, startDay: 4 }, // Apr 1 is Thursday
-    { year: 2027, month: 4, name: "May 2027", days: 31, startDay: 6 }  // May 1 is Saturday
-];
+let currentDate = new Date(2026, 8, 1); // Start at September 2026
 
-const wrapper = document.getElementById('calendar-wrapper');
-
-if (wrapper) {
-    let html = '<div class="grid-2">'; // Put months in a 2-column grid to save vertical space
+function renderCalendar(date) {
+    const year = date.getFullYear();
+    const month = date.getMonth(); // 0-11
     
-    monthsToRender.forEach(m => {
-        html += `<div class="calendar-grid-month">
-            <div class="month-header">${m.name}</div>
-            <div class="days-row">
-                <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
-            </div>
-            <div class="dates-grid">`;
-            
-        // Empty cells for start of month
-        for(let i=0; i<m.startDay; i++) {
-            html += `<div class="date-cell empty-cell"></div>`;
-        }
-        
-        // Days of month
-        for(let day=1; day<=m.days; day++) {
-            let dateStr = `${m.year}-${String(m.month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-            let eventHtml = events[dateStr] ? `<div class="event-badge">${events[dateStr]}</div>` : '';
-            
-            html += `<div class="date-cell">
-                <div class="date-num">${day}</div>
-                ${eventHtml}
-            </div>`;
-        }
-        
-        // Fill remaining cells to complete the grid row
-        let totalCells = m.startDay + m.days;
-        let remainder = totalCells % 7;
-        if(remainder !== 0) {
-            for(let i=0; i<(7 - remainder); i++) {
-                html += `<div class="date-cell empty-cell"></div>`;
-            }
-        }
-        
-        html += `</div></div>`;
-    });
+    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    document.getElementById('month-year-display').innerText = `${monthNames[month]} ${year}`;
     
-    html += '</div>';
-    wrapper.innerHTML = html;
+    const firstDay = new Date(year, month, 1).getDay(); // 0 (Sun) to 6 (Sat)
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    
+    const grid = document.getElementById('calendar-grid');
+    if(!grid) return;
+    grid.innerHTML = '';
+    
+    // Empty cells for days before the 1st
+    for (let i = 0; i < firstDay; i++) {
+        grid.innerHTML += `<div class="cal-cell empty"></div>`;
+    }
+    
+    // Actual days
+    for (let day = 1; day <= daysInMonth; day++) {
+        const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+        const currentDayOfWeek = new Date(year, month, day).getDay();
+        
+        let cellHtml = `<div class="cal-cell">
+            <div class="cal-date-num">${day}</div>`;
+            
+        // Check for special events first
+        if (specialEvents[dateStr]) {
+            cellHtml += `<div class="event-pill event-special">${specialEvents[dateStr]}</div>`;
+        } 
+        // If it's a Tuesday and NOT a special event day, mark it as a standard meeting
+        else if (currentDayOfWeek === 2) {
+            cellHtml += `<div class="event-pill event-meeting">Scout Mtg 6:30p</div>`;
+        }
+        
+        cellHtml += `</div>`;
+        grid.innerHTML += cellHtml;
+    }
+    
+    // Fill remaining grid spaces (to make a perfect 7-column grid)
+    const totalCells = firstDay + daysInMonth;
+    const remainder = totalCells % 7;
+    if (remainder !== 0) {
+        for (let i = 0; i < (7 - remainder); i++) {
+            grid.innerHTML += `<div class="cal-cell empty"></div>`;
+        }
+    }
 }
+
+// Event Listeners for buttons
+document.addEventListener("DOMContentLoaded", () => {
+    const prevBtn = document.getElementById('prev-month');
+    const nextBtn = document.getElementById('next-month');
+    
+    if(prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', () => {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            renderCalendar(currentDate);
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            renderCalendar(currentDate);
+        });
+        
+        // Initial Render
+        renderCalendar(currentDate);
+    }
+});
