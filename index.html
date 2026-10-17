@@ -5,130 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cub Scout Pack 25 | Trinity, NC</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <!-- FontAwesome for icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Montserrat:wght@400;600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <nav>
+    <nav class="navbar">
         <div class="logo">
-            <i class="fa-solid fa-campground"></i> PACK 25
+            <i class="fa-solid fa-map-location-dot"></i> PACK 25
         </div>
+        <button class="mobile-toggle"><i class="fa-solid fa-bars"></i></button>
         <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#dens">Our Dens</a></li>
-            <li><a href="#events">Events</a></li>
-            <li><a href="#parents">Parents</a></li>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="dens.html">Our Dens & Adventures</a></li>
+            <li><a href="calendar.html">Pack Calendar</a></li>
         </ul>
     </nav>
 
-    <header>
-        <div class="header-content">
-            <h1>Cub Scout Pack 25</h1>
-            <p>Akela District | Old North State Council | Trinity, North Carolina</p>
-            <a href="#about" class="btn">Discover the Adventure</a>
+    <header class="hero" style="background-image: linear-gradient(rgba(0, 63, 135, 0.8), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1504280741564-96690467c63c?auto=format&fit=crop&w=1920&q=80');">
+        <div class="hero-content">
+            <h1>CUB SCOUT PACK 25</h1>
+            <p class="subtitle">Akela District | Old North State Council | Trinity, NC</p>
+            <p class="description">Building character, outdoor skills, and lifelong friendships.</p>
+            <div class="hero-buttons">
+                <a href="dens.html" class="btn btn-primary">Explore Our Dens</a>
+                <a href="calendar.html" class="btn btn-secondary">View Calendar</a>
+            </div>
         </div>
     </header>
 
-    <section id="about" class="section">
+    <section class="section about-section">
         <div class="container two-col">
             <div class="text-block">
-                <h2>Adventure Awaits in Trinity</h2>
-                <p>Welcome to Pack 25! We are a dedicated group of scouts, parents, and volunteer leaders who believe in the power of the outdoors, community service, and hands-on learning.</p>
-                <p>From the high-speed thrills of the Pinewood Derby to sleeping under the stars at the Howl-o-ree and our Fall Family Campout, there is always an adventure waiting. Scouting is a family journey, and we encourage everyone to get involved.</p>
+                <h2 class="section-title">Welcome to the Adventure</h2>
+                <p>Pack 25 is dedicated to providing boys with an unparalleled scouting experience. From learning essential outdoor skills to building their own Pinewood Derby cars, our scouts are always on the move.</p>
+                <p>We are a highly active pack in Trinity, North Carolina, heavily supported by parent volunteers who ensure our boys have the guidance and resources they need to earn their ranks and grow into responsible young men.</p>
+                <br>
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#" class="social-btn"><i class="fa-brands fa-rocketchat"></i> GroupMe</a>
+                    <a href="#" class="social-btn"><i class="fa-solid fa-mobile-screen"></i> Band App</a>
+                </div>
             </div>
-            <div class="image-block">
-                <img src="https://images.unsplash.com/photo-1533222481259-ce20eda1e20b?auto=format&fit=crop&w=800&q=80" alt="Scouting Adventure">
-            </div>
-        </div>
-    </section>
-
-    <section id="dens" class="section bg-light">
-        <div class="container">
-            <h2 class="section-title">Our Dens</h2>
-            <p class="section-subtitle">Scouts are grouped by grade level to conquer age-appropriate adventures together.</p>
-            
-            <div class="grid">
-                <div class="card">
-                    <div class="badge">L</div>
-                    <h3>Lions</h3>
-                    <p>Kindergarten</p>
-                </div>
-                <div class="card">
-                    <div class="badge">T</div>
-                    <h3>Tigers</h3>
-                    <p>1st Grade</p>
-                </div>
-                <div class="card">
-                    <div class="badge">W</div>
-                    <h3>Wolves</h3>
-                    <p>2nd Grade</p>
-                </div>
-                <div class="card highlight">
-                    <div class="badge">B</div>
-                    <h3>Bears</h3>
-                    <p>3rd Grade</p>
-                    <div class="meeting-time"><i class="fa-regular fa-clock"></i> 1st & 3rd Tuesday, 6:30 PM</div>
-                </div>
-                <div class="card">
-                    <div class="badge">W</div>
-                    <h3>Webelos</h3>
-                    <p>4th Grade</p>
-                </div>
-                <div class="card">
-                    <div class="badge">A</div>
-                    <h3>Arrow of Light</h3>
-                    <p>5th Grade</p>
-                </div>
+            <div class="image-grid">
+                <img src="https://images.unsplash.com/photo-1533222481259-ce20eda1e20b?auto=format&fit=crop&w=600&q=80" alt="Boys camping" class="img-main">
+                <img src="https://images.unsplash.com/photo-1596414349179-8805f77df230?auto=format&fit=crop&w=400&q=80" alt="Boy hiking" class="img-sub">
             </div>
         </div>
     </section>
 
-    <section id="events" class="section">
-        <div class="container two-col">
-            <div class="box">
-                <h2><i class="fa-solid fa-calendar-days"></i> Upcoming Events</h2>
-                <ul class="event-list">
-                    <li>
-                        <div class="event-info">
-                            <strong>Pinewood Derby Workshop</strong>
-                            <span>Design and shape your cars!</span>
-                        </div>
-                        <div class="event-date">Jan 9</div>
-                    </li>
-                    <li>
-                        <div class="event-info">
-                            <strong>Pinewood Derby Race</strong>
-                            <span>Race day! Needle-rail bodies ready.</span>
-                        </div>
-                        <div class="event-date">Feb 20</div>
-                    </li>
-                    <li>
-                        <div class="event-info">
-                            <strong>Blue & Gold Banquet</strong>
-                            <span>Celebrating the birthday of Scouting.</span>
-                        </div>
-                        <div class="event-date">Feb 23</div>
-                    </li>
-                </ul>
-            </div>
-            <div class="box" id="parents">
-                <h2><i class="fa-solid fa-users"></i> Parent Resources</h2>
-                <p>Stay connected with Pack 25 leadership and fellow parents.</p>
-                <div class="resource-links">
-                    <a href="#" class="resource-btn"><i class="fa-brands fa-rocketchat"></i> Join GroupMe</a>
-                    <a href="#" class="resource-btn"><i class="fa-solid fa-mobile-screen"></i> Band App</a>
-                    <a href="mailto:pack25@example.com" class="resource-btn"><i class="fa-solid fa-envelope"></i> Email Leadership</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Cub Scout Pack 25 | Trinity, NC</p>
-            <p>Akela District | Old North State Council</p>
-        </div>
+    <footer class="footer">
+        <p>&copy; 2026 Cub Scout Pack 25 | Trinity, NC</p>
+        <p>Old North State Council | Akela District</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
