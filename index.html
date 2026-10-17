@@ -5,52 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cub Scout Pack 25 | Trinity, NC</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Montserrat:wght@600;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Montserrat:wght@600;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo"><i class="fa-solid fa-map-location-dot"></i> PACK 25</div>
+    <nav class="navbar patriotic-bg">
+        <div class="logo"><i class="fa-solid fa-flag-usa"></i> PACK 25</div>
         <ul class="nav-links">
             <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="dens.html">Dens & Adventures</a></li>
+            <li><a href="dens.html">Adventures</a></li>
             <li><a href="calendar.html">Calendar</a></li>
         </ul>
     </nav>
 
-    <header class="hero compact-hero">
+    <header class="hero" style="background-image: linear-gradient(rgba(0, 63, 135, 0.85), rgba(178, 34, 52, 0.7)), url('https://images.unsplash.com/photo-1508433959732-3405732342c3?auto=format&fit=crop&w=1920&q=80');">
         <div class="hero-content">
-            <h1>CUB SCOUT PACK 25</h1>
+            <h1 class="patriotic-text">CUB SCOUT PACK 25</h1>
             <p class="subtitle">Akela District | Old North State Council | Trinity, NC</p>
             <div class="hero-buttons">
-                <a href="dens.html" class="btn btn-primary">Dens & Adventures</a>
-                <a href="calendar.html" class="btn btn-secondary">Pack Calendar</a>
+                <a href="https://beascout.scouting.org/" target="_blank" class="btn btn-red"><i class="fa-solid fa-person-hiking"></i> Join Our Pack</a>
+                <a href="dens.html" class="btn btn-primary">Dens & Ranks</a>
             </div>
         </div>
     </header>
 
     <section class="section">
-        <div class="container grid-2">
-            <div class="text-block card">
-                <h2>Welcome to the Adventure</h2>
-                <p>Pack 25 provides boys in Trinity with an unparalleled scouting experience. From learning essential outdoor skills to building and racing Pinewood Derby cars, our scouts are always active.</p>
-                <div class="social-links">
-                    <a href="#" class="social-btn"><i class="fa-brands fa-rocketchat"></i> GroupMe</a>
-                    <a href="#" class="social-btn"><i class="fa-solid fa-mobile-screen"></i> Band App</a>
-                </div>
+        <div class="container">
+            <div class="header-compact">
+                <h2><i class="fa-solid fa-star" style="color:var(--patriotic-red);"></i> What We Do <i class="fa-solid fa-star" style="color:var(--patriotic-red);"></i></h2>
+                <p>Building character, citizenship, and personal fitness in the youth of Trinity, NC.</p>
             </div>
             
-            <!-- Safe Placeholder for Boys in Uniform -->
-            <div class="image-placeholder">
-                <i class="fa-solid fa-camera" style="font-size: 3rem; margin-bottom: 1rem;"></i>
-                <h3>Insert Pack 25 Photo Here</h3>
-                <p>Upload a picture of the boys in their Class A Cub Scout uniforms here.</p>
+            <div class="grid-4">
+                <div class="card patriotic-card">
+                    <div class="card-icon"><i class="fa-solid fa-car-side"></i></div>
+                    <h3>Pinewood Derby</h3>
+                    <p>Scouts design, carve, and weigh their own custom wooden cars to race on our official track. From needle-rail bodies to wedge designs, the competition is fierce and fun!</p>
+                </div>
+                <div class="card patriotic-card">
+                    <div class="card-icon"><i class="fa-solid fa-campground"></i></div>
+                    <h3>Outdoor Adventures</h3>
+                    <p>We host multiple family campouts every year. Scouts learn to pitch tents, build fires safely, hike local trails, and respect the great outdoors.</p>
+                </div>
+                <div class="card patriotic-card">
+                    <div class="card-icon"><i class="fa-solid fa-handshake-angle"></i></div>
+                    <h3>Community Service</h3>
+                    <p>A Scout is helpful. We actively participate in the Scouting for Food drive and local conservation projects to give back to our Trinity community.</p>
+                </div>
+                <div class="card patriotic-card">
+                    <div class="card-icon"><i class="fa-solid fa-medal"></i></div>
+                    <h3>Character Building</h3>
+                    <p>Through the Scout Oath and Law, we instill lifelong values of duty to God, country, and others. We prepare young boys to become responsible leaders.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer class="footer">
-        <p>&copy; 2026 Cub Scout Pack 25 | Trinity, NC | Akela District</p>
+    <section class="section bg-light border-top-red">
+        <div class="container grid-2">
+            <div class="card">
+                <h2><i class="fa-solid fa-clock"></i> Meeting Cadence</h2>
+                <ul class="meeting-list">
+                    <li><strong>Den Meetings:</strong> 1st & 3rd Tuesday @ 6:30 PM</li>
+                    <li><strong>Pack Meetings:</strong> 4th Tuesday @ 6:30 PM</li>
+                    <li><strong>Committee:</strong> 1st Sunday @ 7:00 PM</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h2><i class="fa-solid fa-address-book"></i> Get Connected</h2>
+                <p style="margin-bottom: 1rem;">Stay up-to-date with Pack 25 leadership and fellow parents.</p>
+                <div class="social-links">
+                    <a href="https://beascout.scouting.org/" target="_blank" class="social-btn btn-red"><i class="fa-solid fa-magnifying-glass"></i> BeAScout.org</a>
+                    <a href="#" class="social-btn"><i class="fa-brands fa-rocketchat"></i> GroupMe</a>
+                    <a href="#" class="social-btn"><i class="fa-solid fa-mobile-screen"></i> Band App</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer patriotic-bg">
+        <p>&copy; 2026 Cub Scout Pack 25 | Trinity, NC | Akela District | Boy Scouts of America</p>
     </footer>
 </body>
 </html>

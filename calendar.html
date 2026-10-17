@@ -3,77 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendar | Pack 25</title>
+    <title>Calendar Grid | Pack 25</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Montserrat:wght@600;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Montserrat:wght@600;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="page-bg">
-    <nav class="navbar">
-        <div class="logo"><i class="fa-solid fa-map-location-dot"></i> PACK 25</div>
+    <nav class="navbar patriotic-bg">
+        <div class="logo"><i class="fa-solid fa-flag-usa"></i> PACK 25</div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="dens.html">Dens & Adventures</a></li>
+            <li><a href="dens.html">Adventures</a></li>
             <li><a href="calendar.html" class="active">Calendar</a></li>
         </ul>
     </nav>
 
     <section class="section container">
         <div class="header-compact">
-            <h2>2026-2027 Pack Calendar</h2>
-            <div class="meeting-cadence-bar">
-                <span><strong>Den Meetings:</strong> 1st & 3rd Tue @ 6:30 PM</span> | 
-                <span><strong>Pack Meetings:</strong> 4th Tue @ 6:30 PM</span> | 
-                <span><strong>Committee:</strong> 1st Sun @ 7:00 PM</span>
-            </div>
+            <h2><i class="fa-solid fa-calendar-days" style="color:var(--patriotic-red);"></i> 2026-2027 Event Grid</h2>
+            <p>Our major pack events at a glance.</p>
         </div>
         
-        <div class="compact-calendar">
-            <div class="cal-row">
-                <div class="cal-date">Sep 8</div>
-                <div class="cal-details"><strong>Pack Kickoff</strong> - Welcome back to a new scouting year!</div>
-            </div>
-            <div class="cal-row">
-                <div class="cal-date">Oct 16-18</div>
-                <div class="cal-details"><strong>Fall Family Campout</strong> - Grab your tents for a weekend in the woods.</div>
-            </div>
-            <div class="cal-row">
-                <div class="cal-date">Nov 14</div>
-                <div class="cal-details"><strong>Pack Food Drive</strong> - Scouting for Food community service.</div>
-            </div>
-            <div class="cal-row">
-                <div class="cal-date">Dec 15</div>
-                <div class="cal-details"><strong>Holiday Gathering</strong> - Celebrate the season with the pack.</div>
-            </div>
-            <div class="cal-row cal-highlight">
-                <div class="cal-date">Jan 9</div>
-                <div class="cal-details"><strong>Pinewood Derby Workshop</strong> - Cut, sand, and weight cars. Needle-rail bodies welcome!</div>
-            </div>
-            <div class="cal-row cal-highlight">
-                <div class="cal-date">Feb 20</div>
-                <div class="cal-details"><strong>Pinewood Derby Race Day</strong> - The main racing event.</div>
-            </div>
-            <div class="cal-row">
-                <div class="cal-date">Feb 23</div>
-                <div class="cal-details"><strong>Blue & Gold Banquet</strong> - Celebrating the anniversary of Scouting.</div>
-            </div>
-            <div class="cal-row">
-                <div class="cal-date">Mar 20</div>
-                <div class="cal-details"><strong>Pack Hike</strong> - Hit the trail for outdoor requirements.</div>
-            </div>
-            <div class="cal-row">
-                <div class="cal-date">Apr 23-25</div>
-                <div class="cal-details"><strong>Spring Campout</strong> - Final camping trip of the year.</div>
-            </div>
-            <div class="cal-row">
-                <div class="cal-date">May 15</div>
-                <div class="cal-details"><strong>Rank Crossover</strong> - Celebrate advancing to the next rank!</div>
-            </div>
+        <div id="calendar-wrapper">
+            <!-- JavaScript will populate the grids here to save space and ensure accuracy -->
         </div>
+
     </section>
 
-    <footer class="footer">
+    <footer class="footer patriotic-bg">
         <p>&copy; 2026 Cub Scout Pack 25 | Trinity, NC</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
