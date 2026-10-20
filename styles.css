@@ -85,7 +85,7 @@ h1, h2, h3, .logo { font-family: 'Montserrat', sans-serif; }
 .container { max-width: 1200px; margin: 0 auto; }
 .grid-2-uneven { display: grid; grid-template-columns: 3fr 2fr; gap: 2rem; align-items: start; }
 .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-.grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+.grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
 
 .card { background: var(--white); padding: 2rem; border-radius: 8px; box-shadow: 0 6px 15px rgba(0,0,0,0.08); border: 1px solid var(--border); }
 .patriotic-card { border-top: 6px solid var(--patriotic-red); }
