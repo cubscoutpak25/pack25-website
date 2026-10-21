@@ -27,15 +27,6 @@ body {
 h1, h2, h3, .logo { font-family: 'Montserrat', sans-serif; }
 .hero h1 { font-family: 'Alfa Slab One', cursive; letter-spacing: 2px; }
 
-.patriotic-bg { background: linear-gradient(135deg, var(--primary) 40%, var(--patriotic-red) 100%); color: var(--white); }
-.patriotic-text { text-shadow: 2px 2px 0px var(--patriotic-red), -1px -1px 0px var(--dark); }
-
-.text-center { text-align: center; }
-.mt-2 { margin-top: 1.5rem; }
-.mt-4 { margin-top: 3rem; }
-.pt-0 { padding-top: 0 !important; }
-.clearfix::after { content: ""; clear: both; display: table; }
-
 /* Navbar */
 .navbar {
     padding: 0.8rem 5%;
@@ -78,6 +69,8 @@ h1, h2, h3, .logo { font-family: 'Montserrat', sans-serif; }
 .btn-red:hover { background: var(--white); color: var(--patriotic-red); transform: translateY(-2px); }
 .btn-white { background: var(--white); color: var(--primary); }
 .btn-white:hover { background: var(--secondary); color: var(--primary); }
+.btn-secondary { background: transparent; color: var(--white); border: 2px solid var(--white); }
+.btn-secondary:hover { background: var(--white); color: var(--primary); transform: translateY(-2px); }
 .btn-full { display: block; width: 100%; margin-top: 1rem; }
 
 /* Layout & Cards */
@@ -88,7 +81,6 @@ h1, h2, h3, .logo { font-family: 'Montserrat', sans-serif; }
 .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
 
 .card { background: var(--white); padding: 2rem; border-radius: 8px; box-shadow: 0 6px 15px rgba(0,0,0,0.08); border: 1px solid var(--border); }
-.patriotic-card { border-top: 6px solid var(--patriotic-red); }
 .card h2 { color: var(--primary); margin-bottom: 1rem; font-size: 1.8rem; font-weight: 900; display: flex; align-items: center; gap: 10px;}
 .card h3 { color: var(--dark); font-size: 1.3rem; margin-bottom: 0.8rem;}
 .card p { margin-bottom: 1rem; font-size: 1.05rem; color: #444; }
@@ -107,9 +99,9 @@ h1, h2, h3, .logo { font-family: 'Montserrat', sans-serif; }
 
 /* Action/Map Cards */
 .map-card { padding: 0.5rem; border-top: 6px solid var(--primary); margin-bottom: 1.5rem;}
-.action-card { color: var(--white); text-align: center; border-radius: 8px; padding: 1.5rem;}
-.action-card h3 { color: var(--secondary); font-size: 1.6rem; }
-.action-card p { color: var(--white); opacity: 0.9; margin-bottom: 1.5rem;}
+.action-card { text-align: center; border-radius: 8px; padding: 1.5rem; border: none;}
+.action-card h3 { font-size: 1.6rem; }
+.action-card p { opacity: 0.9; margin-bottom: 1.5rem;}
 
 .header-compact { text-align: center; margin-bottom: 2rem; }
 .header-compact h2 { color: var(--primary); font-size: 2.5rem; font-weight: 900; text-transform: uppercase; }
@@ -193,6 +185,18 @@ h1, h2, h3, .logo { font-family: 'Montserrat', sans-serif; }
 
 /* Footer */
 .footer { padding: 2rem; text-align: center; font-size: 0.95rem; font-weight: 600; box-shadow: inset 0 5px 10px rgba(0,0,0,0.1);}
+
+
+/* UTILITY CLASSES (Always at the bottom so they override base styles like .card) */
+.patriotic-card { border-top: 6px solid var(--patriotic-red) !important; }
+.patriotic-bg { background: linear-gradient(135deg, var(--primary) 40%, var(--patriotic-red) 100%) !important; color: var(--white) !important; border: none !important; }
+.patriotic-bg h2, .patriotic-bg h3, .patriotic-bg p, .patriotic-bg i, .patriotic-bg div { color: var(--white) !important; }
+.patriotic-text { text-shadow: 2px 2px 0px var(--patriotic-red), -1px -1px 0px var(--dark); }
+
+.text-center { text-align: center; }
+.mt-2 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 3rem; }
+.pt-0 { padding-top: 0 !important; }
 
 @media (max-width: 900px) {
     .grid-2-uneven { grid-template-columns: 1fr; }
