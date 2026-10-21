@@ -15,16 +15,17 @@ const baseEvents = [
     { month: 5, day: 15, title: "Rank Crossover" }
 ];
 
-// Holds live events fetched from BAND: { "YYYY-MM-DD": ["Event 1", "Event 2"] }
+// Holds events loaded from Google Calendar (.ics): { "YYYY-MM-DD": ["Event 1", "Event 2"] }
 let syncedEvents = {};
 
 const actualToday = new Date();
 let currentViewDate = new Date(actualToday.getFullYear(), actualToday.getMonth(), 1);
 
 // ----------------------------------------------------
-// BAND APP CALENDAR SYNC (MULTI-PROXY CASCADE + BASE64 DECODER)
+// GOOGLE CALENDAR (.ICS) LOADER
+// Checks local .ics file first (zero CORS issues), then public Google Calendar iCal feed
 // ----------------------------------------------------
-const BAND_ICS_URL = "https://api.band.us/ical?token=aAAxADVkODI0NGNhZTZhMjI5NzdiMjQ4ZGZkZmNhZGNlYzBlNmI5NTk4NTc";
+const GOOGLE_ICAL_URL = "https://calendar.google.com/calendar/ical/cubscoutpak25%40gmail.com/public/basic.ics";
 
 function decodeBase64DataUri(str) {
     if (!str || typeof str !== 'string') return '';
@@ -36,15 +37,13 @@ function decodeBase64DataUri(str) {
                 const binaryStr = atob(base64Part);
                 const bytes = Uint8Array.from(binaryStr, c => c.charCodeAt(0));
                 return new TextDecoder('utf-8').decode(bytes);
-            } catch (e) {
-                console.warn("Base64 decode failed:", e);
-            }
+            } catch (e) {}
         }
     }
     return str;
 }
 
-async function fetchWithTimeout(url, timeoutMs = 6000) {
+async function fetchWithTimeout(url, timeoutMs = 5000) {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeoutMs);
     try {
@@ -57,91 +56,63 @@ async function fetchWithTimeout(url, timeoutMs = 6000) {
     }
 }
 
-async function fetchBandCalendar() {
-    const syncStatus = document.getElementById('sync-status');
-
-    // Load cached events from localStorage immediately if available
+async function loadGoogleCalendar() {
+    // 1. Load cached events immediately if available
     try {
-        const cachedIcs = localStorage.getItem('pack25_band_ics_cache');
-        if (cachedIcs && cachedIcs.includes('BEGIN:VCALENDAR')) {
-            parseICS(cachedIcs);
+        const cached = localStorage.getItem('pack25_gcal_ics_cache');
+        if (cached && cached.includes('BEGIN:VCALENDAR')) {
+            parseICS(cached);
         }
     } catch (e) {}
 
-    // Ordered list of fetch strategies:
-    // 1. Local band.ics (if synced by GitHub Action)
-    // 2. allorigins.win/get (decodes base64 data:text/calendar URI automatically)
-    // 3. codetabs proxy
-    // 4. allorigins.win/raw
-    // 5. cors.lol proxy
-    // 6. corsproxy.io with ?url= syntax
-    const strategies = [
+    // 2. Try local .ics files in the repository first (100% reliable, no proxy needed),
+    //    then try live public Google Calendar feed
+    const sources = [
         {
-            name: "Local band.ics",
-            url: "band.ics",
+            name: "Local cubscoutpak25@gmail.com.ics",
+            url: "cubscoutpak25@gmail.com.ics",
             extract: async (res) => await res.text()
         },
         {
-            name: "AllOrigins JSON (Base64)",
-            url: `https://api.allorigins.win/get?url=${encodeURIComponent(BAND_ICS_URL)}&t=${Date.now()}`,
+            name: "Local URL-encoded cubscoutpak25%40gmail.com.ics",
+            url: "cubscoutpak25%40gmail.com.ics",
+            extract: async (res) => await res.text()
+        },
+        {
+            name: "Local calendar.ics",
+            url: "calendar.ics",
+            extract: async (res) => await res.text()
+        },
+        {
+            name: "Google Calendar via AllOrigins (Base64)",
+            url: `https://api.allorigins.win/get?url=${encodeURIComponent(GOOGLE_ICAL_URL)}&t=${Date.now()}`,
             extract: async (res) => {
                 const json = await res.json();
                 return decodeBase64DataUri(json.contents);
             }
         },
         {
-            name: "CodeTabs Proxy",
-            url: `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(BAND_ICS_URL)}`,
-            extract: async (res) => await res.text()
-        },
-        {
-            name: "AllOrigins Raw",
-            url: `https://api.allorigins.win/raw?url=${encodeURIComponent(BAND_ICS_URL)}`,
-            extract: async (res) => await res.text()
-        },
-        {
-            name: "CORS.lol Proxy",
-            url: `https://api.cors.lol/?url=${encodeURIComponent(BAND_ICS_URL)}`,
-            extract: async (res) => await res.text()
-        },
-        {
-            name: "CorsProxy.io",
-            url: `https://corsproxy.io/?url=${encodeURIComponent(BAND_ICS_URL)}`,
+            name: "Google Calendar via CodeTabs",
+            url: `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(GOOGLE_ICAL_URL)}`,
             extract: async (res) => await res.text()
         }
     ];
 
-    for (const strategy of strategies) {
+    for (const source of sources) {
         try {
-            const response = await fetchWithTimeout(strategy.url, 6500);
+            const response = await fetchWithTimeout(source.url, 5500);
             if (!response.ok) continue;
 
-            const icsText = await strategy.extract(response);
+            const icsText = await source.extract(response);
             if (icsText && icsText.includes('BEGIN:VCALENDAR')) {
-                console.log(`BAND Calendar synced via ${strategy.name}`);
                 try {
-                    localStorage.setItem('pack25_band_ics_cache', icsText);
+                    localStorage.setItem('pack25_gcal_ics_cache', icsText);
                 } catch (e) {}
                 parseICS(icsText);
-                if (syncStatus) {
-                    syncStatus.innerHTML = '<i class="fa-solid fa-check-circle"></i> Live synced with BAND App';
-                    syncStatus.style.color = "#00C62B";
-                }
-                return; // Stop once a strategy succeeds
+                return;
             }
         } catch (err) {
-            console.warn(`Sync strategy [${strategy.name}] failed:`, err.message);
-        }
-    }
-
-    // If all live strategies fail, check if we had cached events or fallback gracefully
-    if (syncStatus) {
-        if (Object.keys(syncedEvents).length > 0) {
-            syncStatus.innerHTML = '<i class="fa-solid fa-check-circle"></i> Showing synced BAND schedule';
-            syncStatus.style.color = "#00C62B";
-        } else {
-            syncStatus.innerHTML = '<i class="fa-solid fa-calendar-check"></i> Showing Pack 25 Standard Schedule';
-            syncStatus.style.color = "var(--primary)";
+            // Silently continue to next source
         }
     }
 }
@@ -150,7 +121,6 @@ function parseICSDate(rawVal) {
     if (!rawVal) return null;
     const clean = rawVal.trim();
 
-    // Case 1: UTC Timestamp (e.g. 20261020T220000Z)
     if (clean.endsWith('Z') && clean.length >= 15) {
         const y = parseInt(clean.substring(0, 4), 10);
         const m = parseInt(clean.substring(4, 6), 10) - 1;
@@ -166,7 +136,6 @@ function parseICSDate(rawVal) {
         };
     }
 
-    // Case 2: Local Timestamp or All-Day Date (e.g. 20261020T180000 or 20261020)
     const digits = clean.replace(/[^0-9]/g, '');
     if (digits.length >= 8) {
         const y = parseInt(digits.substring(0, 4), 10);
@@ -193,7 +162,6 @@ function addSyncedEvent(dateStr, title) {
 function parseICS(icsString) {
     syncedEvents = {};
 
-    // Unfold RFC 5545 folded lines (lines starting with space or tab)
     const unfolded = icsString.replace(/\r?\n[ \t]/g, '');
     const lines = unfolded.split(/\r\n|\n|\r/);
 
@@ -211,13 +179,11 @@ function parseICS(icsString) {
                 if (startInfo) {
                     addSyncedEvent(startInfo.dateStr, currentEvent.summary);
 
-                    // Handle multi-day events if DTEND is present
                     if (currentEvent.end) {
                         const endInfo = parseICSDate(currentEvent.end);
                         if (endInfo && endInfo.dateObj > startInfo.dateObj) {
                             let cur = new Date(startInfo.dateObj);
                             cur.setDate(cur.getDate() + 1);
-                            // For all-day events in ICS, DTEND is exclusive
                             const lastDate = new Date(endInfo.dateObj);
                             if (startInfo.isAllDay || currentEvent.endIsDate) {
                                 lastDate.setDate(lastDate.getDate() - 1);
@@ -285,14 +251,12 @@ function renderCalendar(date) {
     if (!grid) return;
     grid.innerHTML = '';
 
-    // Empty cells for days before the 1st
     for (let i = 0; i < firstDay; i++) {
         grid.innerHTML += `<div class="cal-cell empty"></div>`;
     }
 
-    const hasAnyBandEvents = Object.keys(syncedEvents).length > 0;
+    const hasSyncedEvents = Object.keys(syncedEvents).length > 0;
 
-    // Actual days of the month
     for (let day = 1; day <= daysInMonth; day++) {
         const currentDayOfWeek = new Date(year, month, day).getDay();
         const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
@@ -305,7 +269,7 @@ function renderCalendar(date) {
 
         const cellClasses = isToday ? "cal-cell is-today" : "cal-cell";
 
-        const bandTitles = syncedEvents[dateStr] || [];
+        const gcalTitles = syncedEvents[dateStr] || [];
         const matchingSpecialEvent = baseEvents.find(e => e.month === (month + 1) && e.day === day);
 
         let cellHtml = `<div class="${cellClasses}">`;
@@ -316,16 +280,13 @@ function renderCalendar(date) {
 
         cellHtml += `<div class="cal-date-num">${day}</div>`;
 
-        if (bandTitles.length > 0) {
-            // Render all live events from BAND for this day
-            bandTitles.forEach(title => {
+        if (gcalTitles.length > 0) {
+            gcalTitles.forEach(title => {
                 cellHtml += `<div class="event-pill event-special">${title}</div>`;
             });
-        } else if (!hasAnyBandEvents && matchingSpecialEvent) {
-            // Fallback to static special events only if BAND sync hasn't loaded
+        } else if (!hasSyncedEvents && matchingSpecialEvent) {
             cellHtml += `<div class="event-pill event-special">${matchingSpecialEvent.title}</div>`;
         } else if (currentDayOfWeek === 2) {
-            // Automatic Tuesday Meeting Populator
             cellHtml += `<div class="event-pill event-meeting">Scout Mtg 6:00p</div>`;
         }
 
@@ -333,7 +294,6 @@ function renderCalendar(date) {
         grid.innerHTML += cellHtml;
     }
 
-    // Fill remaining grid spaces to make a complete 7-column grid
     const totalCells = firstDay + daysInMonth;
     const remainder = totalCells % 7;
     if (remainder !== 0) {
@@ -372,6 +332,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const prevBtn = document.getElementById('prev-month');
     const nextBtn = document.getElementById('next-month');
     const todayBtn = document.getElementById('today-btn');
+    const toggleEmbedBtn = document.getElementById('toggle-gcal-embed');
+    const customCalWrapper = document.getElementById('custom-calendar-wrapper');
+    const gcalEmbedWrapper = document.getElementById('google-calendar-embed-wrapper');
+
+    if (toggleEmbedBtn && customCalWrapper && gcalEmbedWrapper) {
+        toggleEmbedBtn.addEventListener('click', () => {
+            const isShowingEmbed = gcalEmbedWrapper.style.display !== 'none';
+            if (isShowingEmbed) {
+                gcalEmbedWrapper.style.display = 'none';
+                customCalWrapper.style.display = 'block';
+                toggleEmbedBtn.innerHTML = '<i class="fa-solid fa-table-cells"></i> Switch to Google Embed View';
+            } else {
+                customCalWrapper.style.display = 'none';
+                gcalEmbedWrapper.style.display = 'block';
+                toggleEmbedBtn.innerHTML = '<i class="fa-solid fa-calendar-days"></i> Switch to Pack 25 Grid View';
+            }
+        });
+    }
 
     if (prevBtn && nextBtn) {
         prevBtn.addEventListener('click', () => {
@@ -391,13 +369,9 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
 
-        // Initial Calendar Render
         renderCalendar(currentViewDate);
-
-        // Trigger BAND Sync
-        fetchBandCalendar();
+        loadGoogleCalendar();
     }
 
-    // Initialize Famous Scouts Search
     setupFamousSearch();
 });
