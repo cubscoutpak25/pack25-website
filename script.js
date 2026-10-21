@@ -27,23 +27,30 @@ function fetchBandCalendar() {
     const syncStatus = document.getElementById('sync-status');
     const icsUrl = "https://api.band.us/ical?token=aAAxADVkODI0NGNhZTZhMjI5NzdiMjQ4ZGZkZmNhZGNlYzBlNmI5NTk4NTc";
     
-    // We use a CORS proxy because browsers block direct cross-origin fetches from api.band.us
-    const proxyUrl = "https://api.allorigins.win/get?url=" + encodeURIComponent(icsUrl);
+    // Using a more robust CORS proxy that returns raw text
+    const proxyUrl = "https://corsproxy.io/?" + encodeURIComponent(icsUrl);
     
     fetch(proxyUrl)
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) throw new Error("Network response was not ok");
+            return response.text();
+        })
         .then(data => {
-            if (data.contents) {
-                parseICS(data.contents);
+            if (data && data.includes('BEGIN:VCALENDAR')) {
+                parseICS(data);
                 if(syncStatus) {
                     syncStatus.innerHTML = '<i class="fa-solid fa-check-circle"></i> Live synced with BAND App';
+                    syncStatus.style.color = "#00C62B";
                 }
+            } else {
+                throw new Error("Invalid ICS data received");
             }
         })
         .catch(err => {
             console.error("Failed to sync BAND calendar", err);
             if(syncStatus) {
-                syncStatus.innerHTML = '<i class="fa-solid fa-circle-exclamation" style="color: var(--patriotic-red);"></i> Live sync unavailable, showing static calendar.';
+                syncStatus.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Live sync blocked by BAND. Showing static calendar.';
+                syncStatus.style.color = "var(--patriotic-red)";
             }
         });
 }
