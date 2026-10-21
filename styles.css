@@ -212,3 +212,6 @@ h1, h2, h3, .logo { font-family: 'Montserrat', sans-serif; }
     .calendar-days-header div { font-size: 0.7rem; padding: 0.5rem 0;}
     .calendar-legend { flex-direction: column; gap: 0.5rem; align-items: flex-start; }
 }
+
+/* Force action card visibility */
+.action-card.patriotic-bg h3, .action-card.patriotic-bg p { color: #ffffff !important; }
